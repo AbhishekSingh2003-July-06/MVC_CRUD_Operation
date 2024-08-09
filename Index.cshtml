@@ -1,0 +1,36 @@
+﻿@model List<WebApplicationRevisionCRUD.Models.Class1Model>
+
+<table class="table table-bordered border-primary" >
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>email_id</th>
+        <th>contact_No</th>
+        <th>address</th>
+        <th>Gender</th>
+        <th>salary</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+
+
+    @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.name</td>
+                    <td>@item.email_id</td>
+                    <td>@item.contact_No</td>
+                    <td>@item.address</td>
+                    <td>@item.Gender</td>
+                    <td>@item.salary</td>
+                    <td><a href="@Url.Action("Delete", "Home", new {@item.id})"  onclick="return confirm('Are you sure you want to delete this record?');"  class="btn btn-outline-danger">Delete</a></td>
+                    <td><a href="@Url.Action("EmpView", "Home", new {@item.id})" onclick="return confirm('Are you sure you want to edit this record?');" class="btn btn-outline-success">Edit</a></td>
+
+
+                </tr>
+            }
+
+
+
+</table>
